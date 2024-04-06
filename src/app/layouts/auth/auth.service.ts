@@ -18,7 +18,7 @@ const MOCK_USER ={
     dni:3212545,
     lastName: 'PRUEBALASTNAME',
     password: '321321',
-    role: 'Profesor',
+    role: 'PROFESSOR',
 };
 
 @Injectable({providedIn: 'root'})

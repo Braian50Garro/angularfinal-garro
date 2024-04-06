@@ -1,0 +1,55 @@
+{
+  "users":[  
+    {
+      "id": 1,
+      "firstName":"Micaela",
+      "lastName":"Perez",
+      "dni": 306498878,
+      "email":"Perez@mail.com",
+      "password":"654985",
+      "role":"PROFESSOR"
+    },
+    {
+      "id": 2,
+      "firstName":"Esteban",
+      "lastName":"Baez",
+      "dni":386484545,
+      "email":"Baez@mail.com",
+     " password":"656547",
+      "role":"STUDENT"
+    },
+    {
+      "id": 2,
+      "firstName":"Cristian",
+      "lastName":"Gonzalez",
+      "dni":365184433,
+      "email":"Gonzalez@mail.com",
+     " password":"215547",
+      "role":"STUDENT"
+    }
+
+]  ,
+"cursos":[
+    {
+      "id": 1,
+      "fullName":"Pedro González",
+      "curseName":"'Naturalez",
+      "createdAt":"2024-02-19T23:32:38.758Z"
+  },
+
+  {
+      "id": 2,
+      "fullName":"Miriam Gómez",
+      "curseName":"Sociales",
+      "createdA":"2024-02-19T23:32:38.758Z"
+  }
+  ],
+  "inscription":[
+  {
+    "id": 1,
+    "userId":"2",
+    "cursoId":"2"
+
+  }
+]
+}

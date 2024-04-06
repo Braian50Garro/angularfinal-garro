@@ -41,7 +41,11 @@ import { adminGuard } from '../../core/guards/admin.guard';
         loadChildren:()=>import('./pages/cursos/cursos.module').then(
           (m) =>m.CursosModule)
       },
-   
+      {
+        path:'inscription',
+        loadChildren:()=>
+        import('./pages/inscription/inscription.module').then((m)=>m.InscriptionModule)
+      },
      {
       path:'**',
       redirectTo:'home'

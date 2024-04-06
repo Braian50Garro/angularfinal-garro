@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Crear inscripción</h1>
+<div mat-dialog-content>
+    <form [formGroup]="inscriptionForm">
+        <mat-form-field>
+            <mat-label>student</mat-label>
+            <mat-select formControlName="userId">
+              <mat-option [value]="materia.id" *ngFor="let materia of materias$ | async">
+                {{materia.firstName}} {{materia.lastName}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Curso</mat-label>
+            <mat-select formControlName="cursoId">
+               <mat-option [value]="Curso.id" *ngFor="let Curso of cursos$ | async">
+                 {{ Curso.curseName }}
+               </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button (click)="onSubmit()">Guardar</button>
+</div>

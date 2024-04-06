@@ -5,7 +5,7 @@ import { AuthService } from '../../layouts/auth/auth.service';
 export const adminGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
   const authService = inject (AuthService);
-  return authService.authUser?.role ==='Profesor'
+  return authService.authUser?.role ==='PROFESSOR'
   ?true
   : router.createUrlTree(['dashboard', 'home']);
 };

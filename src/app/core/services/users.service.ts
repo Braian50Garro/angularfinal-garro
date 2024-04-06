@@ -1,30 +1,13 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../layouts/dashboard/pages/users/models';
-import {  of,delay, Observable, tap } from 'rxjs';
+import {  of,delay, Observable, tap, catchError, mergeMap } from 'rxjs';
 import { AlertsService } from './alerts.service';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment'
 
-const ROLES_DB:string[]=['Profesor', 'Alumno']
+const ROLES_DB:string[]=['PROFESSOR', 'STUDENT']
 
 let USERS_DB:User[]=[
-
-  {
-    id: 1,
-    firstName:'Micaela',
-    lastName:'Perez',
-    dni: 306498878,
-    email:'Perez@mail.com',
-    password:'654985',
-    role:'Profesor'
-  },
-  {
-    id: 2,
-    firstName:'Esteban',
-    lastName:'Baez',
-    dni:386484545,
-    email:'Baez@mail.com',
-    password:'656547',
-    role:'Alumno'
-  },
 
 ];
 
@@ -33,24 +16,38 @@ let USERS_DB:User[]=[
 })
 export class UsersService {
 
-  constructor(private alerts:AlertsService) { }
+  constructor(private alerts:AlertsService , private httpClient:HttpClient) { }
 
   getRoles():Observable<string[]>{
     return of(ROLES_DB).pipe(delay(1000))
+
   }
 
 getUsers(){
-  return of(USERS_DB).pipe(delay(2000));
+
+return this.httpClient.get<User[]>
+(`${environment.apiURL}/users`)
+.pipe(delay(1200));
 }
 createUSer(payload:User){
-USERS_DB.push(payload);
-return this.getUsers();
+return this.httpClient
+.post<User>(`${environment.apiURL}/users`, payload)
+.pipe(mergeMap(() => this.getUsers()));
 }
 
 
 deleteUser(userID:number) {
- USERS_DB = USERS_DB.filter((user) => user.id !== userID);
- return this.getUsers().pipe(tap(()=> this.alerts.showSuccess('Realizado', 'Se elimino correctamente')));
+ return this.httpClient.delete<User>
+ (`${environment.apiURL}/users/${userID}`)
+ .pipe(mergeMap(() => this.getUsers()));
 }
+
+
+getAllMaterias():Observable<User[]>{
+  return this.httpClient.get<User[]>(
+    `${environment.apiURL}/users?role=STUDENT`
+  )
+}
+
 
 }
