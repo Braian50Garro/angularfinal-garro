@@ -19,7 +19,8 @@ const MOCK_USER ={
     lastName: 'PRUEBALASTNAME',
     password: '321321',
     role: 'PROFESSOR',
-};
+}
+
 
 @Injectable({providedIn: 'root'})
 export class AuthService {

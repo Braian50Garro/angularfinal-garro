@@ -5,7 +5,7 @@ import { SharedModule } from '../../../../shared/shared.module';
 import { CursosService} from './cursos.services';
 import { CursoDialogComponent } from './components/curso-dialog/curso-dialog.component';
 import { CursosComponent } from './cursos.component';
- 
+
 
 @NgModule({
   declarations: [CursosComponent,

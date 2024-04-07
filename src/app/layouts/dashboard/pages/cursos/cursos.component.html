@@ -1,13 +1,14 @@
 <h1>Cursos</h1>
 
 <div class="flex justify-content-end mb-3">
-    <button (click)="onCreate()" mat-button>Agregar</button>
+    <button  mat-flat-button type="button" 
+    color="primary" (click)="onCreate()" mat-button>Agregar</button>
 
 </div>
 
 
 
- <table mat-table [dataSource]="cursos">
+ <table mat-table [dataSource]="cursos" class="mat-elevation-z8">
 
 <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Id </th>

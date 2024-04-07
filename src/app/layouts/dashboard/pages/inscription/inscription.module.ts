@@ -25,7 +25,7 @@ import { CursosService } from '../cursos/cursos.services';
     StoreModule.forFeature(inscriptionFeature),
     EffectsModule.forFeature([InscriptionEffects])
   ],
-  providers:[CursosService],
+  providers:[CursosService,],
   
 })
 export class InscriptionModule { }

@@ -39,6 +39,7 @@ inscriptionForm:FormGroup;
   onSubmit():void{
     if (this.inscriptionForm.invalid){
       this.inscriptionForm.markAllAsTouched();
+      
     }else{
       this.store.dispatch(InscriptionActions.createInscription({data:this.inscriptionForm.value})
     );

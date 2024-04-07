@@ -42,15 +42,12 @@ export class CursosComponent {
   onEdit(curso: Curso) {
     this.dialog.open(CursoDialogComponent, {
       data: curso,
-    }).afterClosed().subscribe({
-      next:(result) =>{
-        if (result){
-          this.cursosService.uptdateCursoById(curso.id, result)
-          .subscribe({
-            next:(cursos) =>(this.cursos =cursos),
-          });
-        }
-      },
+    }).afterClosed().subscribe(result => {
+      if (result) {
+        this.cursosService.updateCursoById(curso.id, result).subscribe(updatedCursos => {
+          this.cursos = updatedCursos;
+        });
+      }
     });
   }
   
